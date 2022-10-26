@@ -1,0 +1,41 @@
+for given a preorder for BST {4, 2, 5, 6, 7}
+
+       4
+     /   \
+    2     5
+           \
+            6
+             \
+              7
+
+which is equivalent to the output of `t_print(tree *t)', which does print the top view of a BST
+
+
+1  4
+2  ├ 5
+3  │ ├ 6
+4  │ └ ├ 7
+5  │   └
+6  │ 
+7  └ 2
+
+// 0 1 2 3  <- stack
+
+the `t_print' do the thing:
+
+1. print id of node n
+
+2. print pre-tab, of n->right
+3. print curr-tab, of n->right
+4. print n->right, recursively, back to step-1
+
+5. print pre-tab, of n->left
+6. print curr-tab, of n->left
+7. print n->left, recursively, back to step-1
+
+
+pre-tab means previous-stack tabs
+curr-tab means current-stack tabs
+
+line 3:  "│ ├ 6", in which "│ " is the pre-tabs of node with id = 5,  "├ " is the curr-tab of node with id = 5
+line 1:  pre-tab is null, "├ " is the curr-tab of node with id = 4
